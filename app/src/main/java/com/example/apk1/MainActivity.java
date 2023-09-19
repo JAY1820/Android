@@ -9,32 +9,36 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class MainActivity extends AppCompatActivity {
-    EditText id,name, UNAME, password;
+    EditText id, name, designation, location;
     Button saveBtn;
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        id=(EditText)findViewById(R.id.txtName1);
-        name = (EditText)findViewById(R.id.txtName);
-        UNAME = (EditText)findViewById(R.id.txtusername);
-        password = (EditText)findViewById(R.id.txtpassword);
-        saveBtn = (Button)findViewById(R.id.btnSave);
+
+        id = findViewById(R.id.txtName1);
+        name = findViewById(R.id.txtName);
+        designation = findViewById(R.id.txtDesignation);
+        location = findViewById(R.id.txtLocation);
+        saveBtn = findViewById(R.id.btnSave);
+
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id1=id.getText().toString()+"\n";
-                String name1 = name.getText().toString()+"\n";
-                String username1 = UNAME.getText().toString()+"\n";
-                String pass = password.getText().toString();
-                DbHandler dbHandler = new DbHandler(MainActivity.this);
+                String name1 = name.getText().toString();
+                String designation1 = designation.getText().toString();
+                String location1 = location.getText().toString();
 
-                dbHandler.insertUserDetails(id1,name1,username1,pass);
-                intent = new Intent(MainActivity.this,DetailsActivity.class);
+                DbHandler dbHandler = new DbHandler(MainActivity.this);
+                dbHandler.insertUserDetails(name1, designation1, location1);
+
+                intent = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Details Inserted Successfully",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Details Inserted Successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
