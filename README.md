@@ -1,4 +1,4 @@
-# Android Development Projects
+# Android Development 
 
 Welcome to the Android Development Projects repository. This repository is a collection of small Android projects to help you learn and practice Android app development. Whether you're a beginner or an experienced developer, you'll find a variety of projects to enhance your skills.
 
@@ -28,4 +28,4 @@ To get started with this repository and its Android projects, follow these steps
 1. **Clone the Repository:** Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/yourusername/android-development-projects.git
+   https://github.com/JAY1820/Android_Development
